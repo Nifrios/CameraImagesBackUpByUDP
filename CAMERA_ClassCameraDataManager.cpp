@@ -10,6 +10,7 @@
 // C++ Standard
 // Qt librairies
 #include <QDebug>
+#include <QFile>
 #include <QStringBuilder>
 // Modules
 #include "CAMERA_ClassCameraDataManager.h"
@@ -131,7 +132,43 @@ void CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived(const QByteArray& rawData)
 
       if (CurrentImage != nullptr)
       {
+         // Append pixels data
+         CurrentImage->AppendPixelsData(ProtocolDataDecoded.GetLineNumber(), ProtocolDataDecoded.GetPixels());
 
+         // If image is complete, we export image in file
+         if (CurrentImage->ImageIsReadyToExport() == true)
+         {
+            // Create file if does not exist, otherwise erased the old
+            QFile Image("/tmp/" % QString::number(CurrentImage->GetImageID()) % ".raw");
+
+            if (Image.exists() == true)
+            {
+               if (Image.remove() == false)
+                  qDebug() << "Cannot erased previous image with image identifier: " % QString::number(ImageId) % ", abort writing!";
+            }
+
+            if (Image.open(QIODevice::WriteOnly) == true)
+            {
+               QByteArray PixelsDataConcatened;
+
+               // In QMap, values are sorted by key
+               for (const QByteArray& PixelsDataPerLine : CurrentImage->GetPixels().values())
+                  PixelsDataConcatened.append(PixelsDataPerLine);
+
+               // Write Data in file
+               Image.write(PixelsDataConcatened);
+
+               // Close file
+               Image.close();
+
+               // Remove image entry
+               f_CurrentImage.remove(ImageId);
+            }
+            else
+            {
+               qDebug() << "Cannot create image file with image identifier: " % QString::number(ImageId) % ", abort writing!";
+            }
+         }
       }
       else
       {
