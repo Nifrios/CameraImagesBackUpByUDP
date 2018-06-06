@@ -80,6 +80,7 @@ void CLASS_CAMERA_DATA_MANAGER::Start(void)
    if (f_Udp.Open() == false)
    {
       qDebug() << "Cannot open UDP communication";
+      return;
    }
 
    // If we have open the UDP, we connect new data signal reception
