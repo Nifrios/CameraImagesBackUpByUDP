@@ -34,4 +34,7 @@ RCC_DIR = ./rcc_dir
 UI_DIR = ./ui_dir
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+
+HEADERS += \
+    COMMON_TypeDefs.h \
