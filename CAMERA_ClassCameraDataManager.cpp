@@ -44,7 +44,7 @@
 ///
 CLASS_CAMERA_DATA_MANAGER::CLASS_CAMERA_DATA_MANAGER(QObject *parent):
    QObject(parent),
-   f_Udp(),
+   f_Udp(QHostAddress::LocalHost, 12345, QHostAddress::LocalHost, 12346, this),
    f_CurrentImage()
 {
 
@@ -76,31 +76,14 @@ CLASS_CAMERA_DATA_MANAGER::~CLASS_CAMERA_DATA_MANAGER()
 ///
 void CLASS_CAMERA_DATA_MANAGER::Start(void)
 {
-   QByteArray FakeRawData;
+   // Open UDP communication
+   if (f_Udp.Open() == false)
+   {
+      qDebug() << "Cannot open UDP communication";
+   }
 
-   // Fake image identifier
-   FakeRawData.insert(0, 0x2A);
-   FakeRawData.insert(1, '\x00');
-
-   // Fake line number
-   FakeRawData.insert(2, 0x0B);
-   FakeRawData.insert(3, '\x00');
-
-   // Fake vertical resolution
-   FakeRawData.insert(4, 0xF0);
-   FakeRawData.insert(5, '\x00');
-
-   // Fake horizontal resolution
-//   FakeRawData.insert(6, 0x40);
-//   FakeRawData.insert(7, 0x01);
-   FakeRawData.insert(6, 0x01);
-   FakeRawData.insert(7, '\x00');
-
-   // Fake one byte data
-   FakeRawData.insert(8, 0x06);
-
-   // Call new data received
-   this->SLOT_NewDataReceived(FakeRawData);
+   // If we have open the UDP, we connect new data signal reception
+   QObject::connect(&f_Udp, &CLASS_UDP::SIGNAL_NewDataAvailable, this, &CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived, Qt::QueuedConnection);
 }
 
 /******************************************************************************
