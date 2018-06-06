@@ -13,6 +13,8 @@
 #include <QObject>
 // Modules
 #include "COMMON_TypeDefs.h"
+// App
+#include "CAMERA_ClassCameraProtocolData.h"
 
 ///
 /// \class CLASS_CAMERA_PROTOCOL_DECODE
@@ -49,6 +51,15 @@ class CLASS_CAMERA_PROTOCOL_DECODE : public QObject
       /*------------------------------ Setter ------------------------------*/
 
       /*-------------------------- Public methods  -------------------------*/
+
+      ///
+      /// \fn Decode
+      /// \brief Decode raw data
+      /// \param[in] rawData : Raw data from communication
+      /// \param[in] protocolDataDecoded
+      /// \return Bool \e If raw data has been decoded into protocolDataDecoded
+      ///
+      static Bool Decode(const QByteArray& rawData, CLASS_CAMERA_PROTOCOL_DATA *protocolDataDecoded);
 
       /*--------------------------- Public signals -------------------------*/
 

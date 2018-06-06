@@ -63,6 +63,18 @@ CLASS_CAMERA_PROTOCOL_DECODE::~CLASS_CAMERA_PROTOCOL_DECODE()
  *                             Public methods                                 *
  *****************************************************************************/
 
+///
+/// \fn Decode
+/// \brief Decode raw data
+/// \param[in] rawData : Raw data from communication
+/// \param[in] protocolDataDecoded
+/// \return Bool \e If raw data has been decoded into protocolDataDecoded
+///
+Bool CLASS_CAMERA_PROTOCOL_DECODE::Decode(const QByteArray& rawData, CLASS_CAMERA_PROTOCOL_DATA* protocolDataDecoded)
+{
+
+}
+
 /******************************************************************************
  *                               Public slots                                 *
  *****************************************************************************/

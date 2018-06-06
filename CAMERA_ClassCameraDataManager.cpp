@@ -11,6 +11,8 @@
 // Qt librairies
 // Modules
 #include "CAMERA_ClassCameraDataManager.h"
+// App
+#include "CAMERA_ClassCameraProtocolDecode.h"
 
 /******************************** DEFINITIONS ********************************/
 
@@ -75,6 +77,20 @@ void CLASS_CAMERA_DATA_MANAGER::Start(void)
 /******************************************************************************
  *                               Public slots                                 *
  *****************************************************************************/
+
+///
+/// \fn SLOT_NewDataReceived
+/// \brief Receive new raw data from communication
+/// \param[in] rawData : Raw data
+///
+void CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived(const QByteArray& rawData)
+{
+   // Contains decoded data from raw data received
+   CLASS_CAMERA_PROTOCOL_DATA ProtocolDataDecoded;
+
+   // Status of decoding data
+   Bool DecodeDataStatus(CLASS_CAMERA_PROTOCOL_DECODE::Decode(rawData, &ProtocolDataDecoded));
+}
 
 /******************************************************************************
  *                              Private methods                               *

@@ -46,5 +46,5 @@ HEADERS += \
     PROTOCOL/CAMERA_ClassCameraProtocolData.h
 
 INCLUDEPATH += \
-   $PWD \
-   $PWD/PROTOCOL \
+   $$PWD \
+   $$PWD/PROTOCOL \

@@ -64,6 +64,13 @@ class CLASS_CAMERA_DATA_MANAGER : public QObject
 
    public slots:
 
+      ///
+      /// \fn SLOT_NewDataReceived
+      /// \brief Receive new raw data from communication
+      /// \param[in] rawData : Raw data
+      ///
+      void SLOT_NewDataReceived(const QByteArray& rawData);
+
       /*----------------------------- Private types ----------------------------*/
 
       /*--------------------------- Private methods --------------------------*/

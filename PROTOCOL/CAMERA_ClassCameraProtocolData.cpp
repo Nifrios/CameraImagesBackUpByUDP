@@ -107,6 +107,46 @@ Word CLASS_CAMERA_PROTOCOL_DATA::GetHorizontalIdentifier(void) const
  *                                  Setter                                    *
  *****************************************************************************/
 
+///
+/// \fn SetImageID
+/// \brief Set image identifier
+/// \param[in] imageID : image identifier
+///
+void CLASS_CAMERA_PROTOCOL_DATA::SetImageID(const Word imageID)
+{
+   f_ImageId = imageID;
+}
+
+///
+/// \fn SetLineNumber
+/// \brief Set line number
+/// \param[in] lineNumber : line number
+///
+void CLASS_CAMERA_PROTOCOL_DATA::SetLineNumber(const Word lineNumber)
+{
+   f_LineNumber = lineNumber;
+}
+
+///
+/// \fn SetVerticalResolution
+/// \brief Set vertical resolution
+/// \param[in] verticalResolution : vertical resolution
+///
+void CLASS_CAMERA_PROTOCOL_DATA::SetVerticalResolution(const Word verticalResolution)
+{
+   f_VerticalResolution = verticalResolution;
+}
+
+///
+/// \fn SetHorizontalResolution
+/// \brief Set horizontal resolution
+/// \param[in] horizontalResolution : horizontal resolution
+///
+void CLASS_CAMERA_PROTOCOL_DATA::SetHorizontalResolution(const Word horizontalResolution)
+{
+   f_HorizontalResolution = horizontalResolution;
+}
+
 /******************************************************************************
  *                             Public methods                                 *
  *****************************************************************************/

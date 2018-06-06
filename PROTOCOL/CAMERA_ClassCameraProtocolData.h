@@ -40,7 +40,7 @@ class CLASS_CAMERA_PROTOCOL_DATA : public QObject
       /// \param[in] horizontalResolutation : Horizontal resolution
       /// \param[in] parent : Parent object
       ///
-      CLASS_CAMERA_PROTOCOL_DATA(Word imageID, Word lineNumber, Word verticalResolution, Word horizontalResolutation, QObject *parent = nullptr);
+      CLASS_CAMERA_PROTOCOL_DATA(Word imageID = 0, Word lineNumber = 0, Word verticalResolution = 0, Word horizontalResolutation = 0, QObject *parent = nullptr);
 
       ///
       /// \fn ~CLASS_CAMERA_PROTOCOL_DATA()
@@ -79,6 +79,34 @@ class CLASS_CAMERA_PROTOCOL_DATA : public QObject
       Word GetHorizontalIdentifier(void) const;
 
       /*------------------------------ Setter ------------------------------*/
+
+      ///
+      /// \fn SetImageID
+      /// \brief Set image identifier
+      /// \param[in] imageID : image identifier
+      ///
+      void SetImageID(const Word imageID);
+
+      ///
+      /// \fn SetLineNumber
+      /// \brief Set line number
+      /// \param[in] lineNumber : line number
+      ///
+      void SetLineNumber(const Word lineNumber);
+
+      ///
+      /// \fn SetVerticalResolution
+      /// \brief Set vertical resolution
+      /// \param[in] verticalResolution : vertical resolution
+      ///
+      void SetVerticalResolution(const Word verticalResolution);
+
+      ///
+      /// \fn SetHorizontalResolution
+      /// \brief Set horizontal resolution
+      /// \param[in] horizontalResolution : horizontal resolution
+      ///
+      void SetHorizontalResolution(const Word horizontalResolution);
 
       /*-------------------------- Public methods  -------------------------*/
 
