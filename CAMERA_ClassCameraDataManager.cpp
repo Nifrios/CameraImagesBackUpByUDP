@@ -43,7 +43,9 @@
 /// \param[in] parent : Objet parent
 ///
 CLASS_CAMERA_DATA_MANAGER::CLASS_CAMERA_DATA_MANAGER(QObject *parent):
-   QObject(parent)
+   QObject(parent),
+   f_Udp(),
+   f_CurrentImage()
 {
 
 }

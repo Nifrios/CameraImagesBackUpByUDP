@@ -15,6 +15,7 @@
 #include "COMMON_TypeDefs.h"
 // App
 #include "CAMERA_ClassCameraImage.h"
+#include "COMDRIVER_ClassUdp.h"
 
 ///
 /// \class CLASS_CAMERA_DATA_MANAGER
@@ -87,7 +88,8 @@ class CLASS_CAMERA_DATA_MANAGER : public QObject
 
    private:
 
-      QMap<Word, CLASS_CAMERA_IMAGE*> f_CurrentImage;    ///< Current image depends on raw buffer
+      CLASS_UDP f_Udp;                                   /// UDP communication
+      QMap<Word, CLASS_CAMERA_IMAGE*> f_CurrentImage;    /// Current image depends on raw buffer
 
 };
 

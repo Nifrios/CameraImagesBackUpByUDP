@@ -42,7 +42,7 @@ class CLASS_UDP : public QObject
       /// \param[in] remotePort : Remote port
       /// \param[in] parent : Objet parent
       ///
-      CLASS_UDP(const QHostAddress& localAddress = QHostAddress::LocalHost, const Word localPort = 12345, const QHostAddress& remoteAddress = QHostAddress::LocalHost, Word remotePort = 123456, QObject *parent = nullptr);
+      CLASS_UDP(const QHostAddress& localAddress = QHostAddress::LocalHost, const Word localPort = 12345, const QHostAddress& remoteAddress = QHostAddress::LocalHost, Word remotePort = 12346, QObject *parent = nullptr);
 
       ///
       /// \fn ~CLASS_UDP()
