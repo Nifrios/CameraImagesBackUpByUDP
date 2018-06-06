@@ -35,6 +35,8 @@ UI_DIR = ./ui_dir
 
 SOURCES += \
         main.cpp \
+    CAMERA_ClassCameraDataManager.cpp
 
 HEADERS += \
     COMMON_TypeDefs.h \
+    CAMERA_ClassCameraDataManager.h
