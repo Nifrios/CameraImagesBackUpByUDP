@@ -36,9 +36,13 @@ class CLASS_UDP : public QObject
       /// \fn CLASS_UDP(QObject *parent)
       /// \brief CLASS_UDP constructor
       ///
+      /// \param[in] localAddress : Local IP
+      /// \param[in] portNumber : Local port
+      /// \param[in] remoteAddress : Remote IP
+      /// \param[in] remotePort : Remote port
       /// \param[in] parent : Objet parent
       ///
-      CLASS_UDP(QObject *parent = nullptr);
+      CLASS_UDP(const QHostAddress& localAddress = QHostAddress::LocalHost, const Word localPort = 12345, const QHostAddress& remoteAddress = QHostAddress::LocalHost, const Word remotePort = 123456, QObject *parent = nullptr);
 
       ///
       /// \fn ~CLASS_UDP()
@@ -75,10 +79,10 @@ class CLASS_UDP : public QObject
    private:
 
       QUdpSocket f_Socket;                       ///< Udp socket
-      Word f_LocalPort;                          ///< Local port
       QHostAddress f_LocalAddress;               ///< Local IP
-      Word f_RemotePort;                         ///< Dest port
-      QHostAddress f_RemoteAddress;              ///< Dest IP
+      Word f_LocalPort;                          ///< Local port
+      QHostAddress f_RemoteAddress;              ///< Remote IP
+      Word f_RemotePort;                         ///< Remote port
 
 };
 
