@@ -107,6 +107,7 @@ void CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived(const QByteArray& rawData)
    // If decoding status is true, we append/create image data
    if (DecodeDataStatus == true)
    {
+      // Get image ID
       const Word ImageId(ProtocolDataDecoded.GetImageID());
 
       // If we haven't this image, we create it
@@ -133,6 +134,7 @@ void CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived(const QByteArray& rawData)
                   qDebug() << "Cannot erased previous image with image identifier: " % QString::number(ImageId) % ", abort writing!";
             }
 
+            // If the relevant file does not already exist, this function will try to create a new file before opening it
             if (Image.open(QIODevice::WriteOnly) == true)
             {
                QByteArray PixelsDataConcatened;
