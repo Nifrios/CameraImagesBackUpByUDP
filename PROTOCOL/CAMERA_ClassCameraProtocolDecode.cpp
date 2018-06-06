@@ -72,7 +72,51 @@ CLASS_CAMERA_PROTOCOL_DECODE::~CLASS_CAMERA_PROTOCOL_DECODE()
 ///
 Bool CLASS_CAMERA_PROTOCOL_DECODE::Decode(const QByteArray& rawData, CLASS_CAMERA_PROTOCOL_DATA* protocolDataDecoded)
 {
+   // Raw data must contains 8 header data
+   if (rawData.length() < 8)
+      return false;
 
+   // Copy raw data for manipulation
+   QByteArray RawData(rawData);
+
+   /*********************************
+    * DECODE DATA
+    * *******************************/
+   // Image ID
+   Word ImageId(0);
+   // Extract and set data
+   memcpy(&ImageId, RawData.left(sizeof(Word)), sizeof(Word));
+   protocolDataDecoded->SetImageID(ImageId);
+   // Remove data traited
+   RawData.remove(0, sizeof(Word));
+
+   // Line number
+   Word LineNumber(0);
+   // Extract and set data
+   memcpy(&LineNumber, RawData.left(sizeof(Word)), sizeof(Word));
+   protocolDataDecoded->SetLineNumber(LineNumber);
+   // Remove data traited
+   RawData.remove(0, sizeof(Word));
+
+   // Vertical resolution
+   Word VerticalResolution(0);
+   // Extract and set data
+   memcpy(&VerticalResolution, RawData.left(sizeof(Word)), sizeof(Word));
+   protocolDataDecoded->SetVerticalResolution(VerticalResolution);
+   // Remove data traited
+   RawData.remove(0, sizeof(Word));
+
+   // Horizontal resolution
+   Word HorizontalResolution(0);
+   // Extract and set data
+   memcpy(&HorizontalResolution, RawData.left(sizeof(Word)), sizeof(Word));
+   protocolDataDecoded->SetHorizontalResolution(HorizontalResolution);
+   // Remove data traited
+   RawData.remove(0, sizeof(Word));
+
+   // Pixels
+
+   return true;
 }
 
 /******************************************************************************
