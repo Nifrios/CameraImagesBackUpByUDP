@@ -136,7 +136,13 @@ void CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived(const QByteArray& rawData)
             if (Image.exists() == true)
             {
                if (Image.remove() == false)
-                  qDebug() << "Cannot erased previous image with image identifier: " % QString::number(ImageId) % ", abort writing!";
+               {
+                  qDebug() << "Cannot erased previous image with image identifier: " % QString::number(ImageId) % ", abort writing and remove image data!";
+                  // Remove image entry
+                  f_CurrentImage.remove(ImageId);
+
+                  return;
+               }
             }
 
             // If the relevant file does not already exist, this function will try to create a new file before opening it
