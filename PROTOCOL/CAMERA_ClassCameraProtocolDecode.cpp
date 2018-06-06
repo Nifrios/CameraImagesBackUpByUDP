@@ -9,6 +9,8 @@
 
 // C++ Standard
 // Qt librairies
+#include <QDebug>
+#include <QStringBuilder>
 // Modules
 #include "CAMERA_ClassCameraProtocolDecode.h"
 
@@ -115,6 +117,13 @@ Bool CLASS_CAMERA_PROTOCOL_DECODE::Decode(const QByteArray& rawData, CLASS_CAMER
    RawData.remove(0, sizeof(Word));
 
    // Pixels
+   // Check if pixels length correspond to horizontal resolution value
+   if (RawData.length() != protocolDataDecoded->GetHorizontalIdentifier())
+   {
+      qDebug() << "Pixels data (" % QString::number(RawData.length()) % ") does not correspond to horizontal resolution value \"" % QString::number(protocolDataDecoded->GetHorizontalIdentifier()) % "\"";
+      return false;
+   }
+   protocolDataDecoded->SetPixels(RawData);
 
    return true;
 }
