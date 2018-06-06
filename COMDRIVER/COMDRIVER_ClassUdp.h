@@ -60,6 +60,13 @@ class CLASS_UDP : public QObject
 
    signals:
 
+      ///
+      /// \fn SIGNAL_NewDataAvailable
+      /// \brief New data available
+      /// \param[in] data : rawData
+      ///
+      void SIGNAL_NewDataAvailable(const QByteArray& rawData);
+
       /*---------------------------- Public slots --------------------------*/
 
    public slots:
@@ -71,6 +78,12 @@ class CLASS_UDP : public QObject
    protected:
 
    private:
+
+      ///
+      /// \fn ReceiveDataFromPort
+      /// \brief Receive data from port
+      ///
+      void ReceiveDataFromPort(void);
 
       /*------------------------------ Variables ------------------------------*/
 

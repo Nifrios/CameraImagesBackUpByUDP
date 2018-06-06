@@ -49,7 +49,8 @@ CLASS_UDP::CLASS_UDP(const QHostAddress& localAddress, const Word localPort, con
    f_RemoteAddress(remoteAddress),
    f_RemotePort(remotePort)
 {
-
+   // Connect data reception
+   QObject::connect(&f_Socket, &QUdpSocket::readyRead, this, &CLASS_UDP::ReceiveDataFromPort);
 }
 
 ///
@@ -79,3 +80,30 @@ CLASS_UDP::~CLASS_UDP()
 /******************************************************************************
  *                              Private methods                               *
  *****************************************************************************/
+
+///
+/// \fn ReceiveDataFromPort
+/// \brief Receive data from port
+///
+void CLASS_UDP::ReceiveDataFromPort(void)
+{
+   QHostAddress RemoteAddress(QHostAddress::Null);
+   Word RemotePort(0);
+   QByteArray Message;
+
+   // No data, we stop
+   if (f_Socket.pendingDatagramSize() == 0)
+      return;
+
+   Message.resize(f_Socket.pendingDatagramSize());
+
+   // Read message
+   f_Socket.readDatagram(Message.data(), Message.size() , &RemoteAddress, &RemotePort);
+
+   // No data, we stop
+   if (Message.isEmpty() == true)
+      return;
+
+   // Emit new data available
+   emit this->SIGNAL_NewDataAvailable(Message);
+}
