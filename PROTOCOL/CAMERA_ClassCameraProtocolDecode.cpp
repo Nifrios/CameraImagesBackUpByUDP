@@ -118,9 +118,10 @@ Bool CLASS_CAMERA_PROTOCOL_DECODE::Decode(const QByteArray& rawData, CLASS_CAMER
 
    // Pixels
    // Check if pixels length correspond to horizontal resolution value
-   if (RawData.length() != protocolDataDecoded->GetHorizontalIdentifier())
+   if (RawData.length() != protocolDataDecoded->GetHorizontalResolution())
    {
-      qDebug() << "Pixels data (" % QString::number(RawData.length()) % ") does not correspond to horizontal resolution value \"" % QString::number(protocolDataDecoded->GetHorizontalIdentifier()) % "\"";
+      qDebug() << "Pixels data (" % QString::number(RawData.length()) % ") does not correspond to horizontal resolution value \"" %
+                  QString::number(protocolDataDecoded->GetHorizontalResolution()) % "\"";
       return false;
    }
    protocolDataDecoded->SetPixels(RawData);

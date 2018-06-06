@@ -84,21 +84,21 @@ Word CLASS_CAMERA_PROTOCOL_DATA::GetLineNumber(void) const
 }
 
 ///
-/// \fn GetVerticalIdentifier
-/// \brief Get vertical identifier
-/// \return Word \e Vertical identifier
+/// \fn GetVerticalResolution
+/// \brief Get vertical resolution
+/// \return Word \e Vertical resolution
 ///
-Word CLASS_CAMERA_PROTOCOL_DATA::GetVerticalIdentifier(void) const
+Word CLASS_CAMERA_PROTOCOL_DATA::GetVerticalResolution(void) const
 {
    return f_VerticalResolution;
 }
 
 ///
-/// \fn GetHorizontalIdentifier
-/// \brief Get horizontal identifier
-/// \return Word \e horizontal identifier
+/// \fn GetHorizontalResolution
+/// \brief Get horizontal resolution
+/// \return Word \e horizontal resolution
 ///
-Word CLASS_CAMERA_PROTOCOL_DATA::GetHorizontalIdentifier(void) const
+Word CLASS_CAMERA_PROTOCOL_DATA::GetHorizontalResolution(void) const
 {
    return f_HorizontalResolution;
 }

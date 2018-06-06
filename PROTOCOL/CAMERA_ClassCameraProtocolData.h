@@ -65,18 +65,18 @@ class CLASS_CAMERA_PROTOCOL_DATA : public QObject
       Word GetLineNumber(void) const;
 
       ///
-      /// \fn GetVerticalIdentifier
-      /// \brief Get vertical identifier
-      /// \return Word \e Vertical identifier
+      /// \fn GetVerticalResolution
+      /// \brief Get vertical resolution
+      /// \return Word \e Vertical resolution
       ///
-      Word GetVerticalIdentifier(void) const;
+      Word GetVerticalResolution(void) const;
 
       ///
-      /// \fn GetHorizontalIdentifier
-      /// \brief Get horizontal identifier
-      /// \return Word \e horizontal identifier
+      /// \fn GetHorizontalResolution
+      /// \brief Get horizontal resolution
+      /// \return Word \e horizontal resolution
       ///
-      Word GetHorizontalIdentifier(void) const;
+      Word GetHorizontalResolution(void) const;
 
       ///
       /// \fn GetPixels
