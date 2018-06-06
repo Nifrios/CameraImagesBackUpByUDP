@@ -1,6 +1,6 @@
 Exercice repository
 
-Things to do to compile the code (I'm using Qt 5.11 on Ubuntu x64 on VirtualBox):
+Things to do to compile the code (I'm using Qt 5.11 on Ubuntu 18.04 LTS x64 on VirtualBox):
 
 Qt5 dependencies:
 * Install g++: sudo apt-get install build-essential
