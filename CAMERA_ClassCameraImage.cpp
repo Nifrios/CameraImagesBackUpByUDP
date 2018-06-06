@@ -35,10 +35,17 @@
 /// \fn CLASS_CAMERA_IMAGE(QObject *parent)
 /// \brief CLASS_CAMERA_IMAGE constructor
 ///
+/// \param[in] imageID : Image identifier
+/// \param[in] verticalResolution : Vertical resolution
+/// \param[in] horizontalResolutation : Horizontal resolution
 /// \param[in] parent : Objet parent
 ///
-CLASS_CAMERA_IMAGE::CLASS_CAMERA_IMAGE(QObject *parent):
-   QObject(parent)
+CLASS_CAMERA_IMAGE::CLASS_CAMERA_IMAGE(Word imageID, Word verticalResolution, Word horizontalResolutation, QObject *parent):
+   QObject(parent),
+   f_ImageId(imageID),
+   f_VerticalResolution(verticalResolution),
+   f_HorizontalResolution(horizontalResolutation),
+   f_Pixels()
 {
 
 }
@@ -102,6 +109,28 @@ const QMap<Word, QByteArray>& CLASS_CAMERA_IMAGE::GetPixels(void) const
 /******************************************************************************
  *                             Public methods                                 *
  *****************************************************************************/
+
+///
+/// \fn AppendPixelsData
+/// \brief Append pixels data in image
+/// \param[in] lineNumber : Line number
+/// \param[in] pixels : Pixels
+///
+void CLASS_CAMERA_IMAGE::AppendPixelsData(const Word lineNumber, const QByteArray& pixels)
+{
+   // If lineNumber is already presents, we erased old data replaces by pixels
+   f_Pixels.insert(lineNumber, pixels);
+}
+
+///
+/// \fn ImageIsReadyToExport
+/// \brief Indicate if image contains all wanted data
+/// \return Bool \e True if image contains all wanted data
+///
+Bool CLASS_CAMERA_IMAGE::ImageIsReadyToExport(void)
+{
+   return (f_Pixels.size() == f_HorizontalResolution);
+}
 
 /******************************************************************************
  *                               Public slots                                 *

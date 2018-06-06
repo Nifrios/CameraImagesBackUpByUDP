@@ -13,6 +13,8 @@
 #include <QObject>
 // Modules
 #include "COMMON_TypeDefs.h"
+// App
+#include "CAMERA_ClassCameraImage.h"
 
 ///
 /// \class CLASS_CAMERA_DATA_MANAGER
@@ -84,6 +86,8 @@ class CLASS_CAMERA_DATA_MANAGER : public QObject
    protected:
 
    private:
+
+      QMap<Word, CLASS_CAMERA_IMAGE*> f_CurrentImage;    ///< Current image depends on raw buffer
 
 };
 

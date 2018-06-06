@@ -35,9 +35,12 @@ class CLASS_CAMERA_IMAGE : public QObject
       /// \fn CLASS_CAMERA_IMAGE(QObject *parent)
       /// \brief CLASS_CAMERA_IMAGE constructor
       ///
+      /// \param[in] imageID : Image identifier
+      /// \param[in] verticalResolution : Vertical resolution
+      /// \param[in] horizontalResolutation : Horizontal resolution
       /// \param[in] parent : Objet parent
       ///
-      CLASS_CAMERA_IMAGE(QObject *parent = nullptr);
+      CLASS_CAMERA_IMAGE(Word imageID, Word verticalResolution, Word horizontalResolutation, QObject *parent = nullptr);
 
       ///
       /// \fn ~CLASS_CAMERA_IMAGE()
@@ -78,6 +81,21 @@ class CLASS_CAMERA_IMAGE : public QObject
       /*------------------------------ Setter ------------------------------*/
 
       /*-------------------------- Public methods  -------------------------*/
+
+      ///
+      /// \fn AppendPixelsData
+      /// \brief Append pixels data in image
+      /// \param[in] lineNumber : Line number
+      /// \param[in] pixels : Pixels
+      ///
+      void AppendPixelsData(const Word lineNumber, const QByteArray& pixels);
+
+      ///
+      /// \fn ImageIsReadyToExport
+      /// \brief Indicate if image contains all wanted data
+      /// \return Bool \e True if image contains all wanted data
+      ///
+      Bool ImageIsReadyToExport(void);
 
       /*--------------------------- Public signals -------------------------*/
 

@@ -9,6 +9,8 @@
 
 // C++ Standard
 // Qt librairies
+#include <QDebug>
+#include <QStringBuilder>
 // Modules
 #include "CAMERA_ClassCameraDataManager.h"
 // App
@@ -114,6 +116,32 @@ void CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived(const QByteArray& rawData)
 
    // Status of decoding data
    Bool DecodeDataStatus(CLASS_CAMERA_PROTOCOL_DECODE::Decode(rawData, &ProtocolDataDecoded));
+
+   // If decoding status is true, we append/create image data
+   if (DecodeDataStatus == true)
+   {
+      const Word ImageId(ProtocolDataDecoded.GetImageID());
+
+      // If we haven't this image, we create it
+      if (f_CurrentImage.contains(ImageId) == false)
+         f_CurrentImage.insert(ImageId, new CLASS_CAMERA_IMAGE(ImageId, ProtocolDataDecoded.GetVerticalResolution(), ProtocolDataDecoded.GetHorizontalResolution()));
+
+      // Get current image object
+      CLASS_CAMERA_IMAGE* CurrentImage(f_CurrentImage.value(ImageId));
+
+      if (CurrentImage != nullptr)
+      {
+
+      }
+      else
+      {
+         qDebug() << "Cannot get image object for image identifier: " % QString::number(ImageId);
+      }
+   }
+   else
+   {
+      qDebug() << "Error decoding data frame: " % rawData;
+   }
 }
 
 /******************************************************************************
