@@ -9,6 +9,8 @@
 
 // C++ Standard
 // Qt librairies
+#include <QDebug>
+#include <QStringBuilder>
 // Modules
 #include "COMDRIVER_ClassUdp.h"
 
@@ -59,11 +61,42 @@ CLASS_UDP::CLASS_UDP(const QHostAddress& localAddress, const Word localPort, con
 ///
 CLASS_UDP::~CLASS_UDP()
 {
+   // Close connection if opened
+   if (f_Socket.state() == QAbstractSocket::ConnectedState)
+      this->Close();
 }
 
 /******************************************************************************
  *                                 Getter                                     *
  *****************************************************************************/
+
+///
+/// \fn Open
+/// \brief Open connection
+/// \return \e Bool : true if opened
+///
+Bool CLASS_UDP::Open(void)
+{
+   // Démarrage de la connexion avec le serveur
+   if (f_Socket.bind(f_LocalAddress, f_LocalPort) == true)
+   {
+      return true;
+   }
+   else
+   {
+      qDebug() << "Failed to bind with address: " % f_LocalAddress.toString() % " with port: " % QString::number(f_LocalPort);
+      return false;
+   }
+}
+
+///
+/// \fn Close
+/// \brief Close connection
+///
+void CLASS_UDP::Close(void)
+{
+   f_Socket.close();
+}
 
 /******************************************************************************
  *                                  Setter                                    *
