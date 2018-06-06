@@ -1,4 +1,5 @@
 QT -= gui
+QT += serialport network core
 
 CONFIG += c++11 console
 CONFIG -= app_bundle
@@ -38,15 +39,18 @@ SOURCES += \
     CAMERA_ClassCameraDataManager.cpp \
     PROTOCOL/CAMERA_ClassCameraProtocolDecode.cpp \
     PROTOCOL/CAMERA_ClassCameraProtocolData.cpp \
-    CAMERA_ClassCameraImage.cpp
+    CAMERA_ClassCameraImage.cpp \
+    COMDRIVER/COMDRIVER_ClassUdp.cpp
 
 HEADERS += \
     COMMON_TypeDefs.h \
     CAMERA_ClassCameraDataManager.h \
     PROTOCOL/CAMERA_ClassCameraProtocolDecode.h \
     PROTOCOL/CAMERA_ClassCameraProtocolData.h \
-    CAMERA_ClassCameraImage.h
+    CAMERA_ClassCameraImage.h \
+    COMDRIVER/COMDRIVER_ClassUdp.h
 
 INCLUDEPATH += \
    $$PWD \
+   $$PWD/COMDRIVER \
    $$PWD/PROTOCOL \
