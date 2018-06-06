@@ -1,7 +1,7 @@
 ///
 /// \file CAMERA_ClassCameraImage.cpp
 /// \brief Classe CLASS_CAMERA_IMAGE
-/// \author ANALOG WAY - FRO
+/// \author Florian Roussel
 /// \date 2018-06-06
 ///
 /// CLASS_CAMERA_IMAGE functions

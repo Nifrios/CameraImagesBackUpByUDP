@@ -1,7 +1,7 @@
 ///
 /// \file COMDRIVER_ClassUdp.cpp
 /// \brief Classe CLASS_UDP
-/// \author ANALOG WAY - FRO
+/// \author Florian Roussel
 /// \date 2018-06-06
 ///
 /// CLASS_UDP functions

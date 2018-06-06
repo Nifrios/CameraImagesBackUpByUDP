@@ -1,7 +1,7 @@
 ///
 /// \file CAMERA_ClassCameraDataManager.cpp
 /// \brief Classe CLASS_CAMERA_DATA_MANAGER
-/// \author ANALOG WAY - FRO
+/// \author Florian Roussel
 /// \date 2018-06-06
 ///
 /// CLASS_CAMERA_DATA_MANAGER functions
