@@ -37,13 +37,15 @@ SOURCES += \
         main.cpp \
     CAMERA_ClassCameraDataManager.cpp \
     PROTOCOL/CAMERA_ClassCameraProtocolDecode.cpp \
-    PROTOCOL/CAMERA_ClassCameraProtocolData.cpp
+    PROTOCOL/CAMERA_ClassCameraProtocolData.cpp \
+    CAMERA_ClassCameraImage.cpp
 
 HEADERS += \
     COMMON_TypeDefs.h \
     CAMERA_ClassCameraDataManager.h \
     PROTOCOL/CAMERA_ClassCameraProtocolDecode.h \
-    PROTOCOL/CAMERA_ClassCameraProtocolData.h
+    PROTOCOL/CAMERA_ClassCameraProtocolData.h \
+    CAMERA_ClassCameraImage.h
 
 INCLUDEPATH += \
    $$PWD \

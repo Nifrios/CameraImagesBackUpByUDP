@@ -86,8 +86,10 @@ void CLASS_CAMERA_DATA_MANAGER::Start(void)
    FakeRawData.insert(5, '\x00');
 
    // Fake horizontal resolution
-   FakeRawData.insert(6, 0x40);
-   FakeRawData.insert(7, 0x01);
+//   FakeRawData.insert(6, 0x40);
+//   FakeRawData.insert(7, 0x01);
+   FakeRawData.insert(6, 0x01);
+   FakeRawData.insert(7, '\x00');
 
    // Fake one byte data
    FakeRawData.insert(8, 0x06);
