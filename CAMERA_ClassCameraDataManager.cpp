@@ -44,7 +44,7 @@
 ///
 CLASS_CAMERA_DATA_MANAGER::CLASS_CAMERA_DATA_MANAGER(QObject *parent):
    QObject(parent),
-   f_Udp(QHostAddress::LocalHost, 12345, QHostAddress::LocalHost, 12346, this),
+   f_Udp(QHostAddress::LocalHost, 12345, this),
    f_CurrentImage()
 {
 

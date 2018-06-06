@@ -39,17 +39,13 @@
 ///
 /// \param[in] localAddress : Local IP
 /// \param[in] portNumber : Local port
-/// \param[in] remoteAddress : Remote IP
-/// \param[in] remotePort : Remote port
 /// \param[in] parent : Objet parent
 ///
-CLASS_UDP::CLASS_UDP(const QHostAddress& localAddress, const Word localPort, const QHostAddress& remoteAddress, const Word remotePort, QObject *parent):
+CLASS_UDP::CLASS_UDP(const QHostAddress& localAddress, const Word localPort, QObject *parent):
    QObject(parent),
    f_Socket(parent),
    f_LocalAddress(localAddress),
-   f_LocalPort(localPort),
-   f_RemoteAddress(remoteAddress),
-   f_RemotePort(remotePort)
+   f_LocalPort(localPort)
 {
    // Connect data reception
    QObject::connect(&f_Socket, &QUdpSocket::readyRead, this, &CLASS_UDP::ReceiveDataFromPort);
@@ -61,8 +57,6 @@ CLASS_UDP::CLASS_UDP(const QHostAddress& localAddress, const Word localPort, con
 ///
 CLASS_UDP::~CLASS_UDP()
 {
-   // We het remote parameters for potential answers
-
    // Close connection if opened
    if (f_Socket.state() == QAbstractSocket::ConnectedState)
       this->Close();
