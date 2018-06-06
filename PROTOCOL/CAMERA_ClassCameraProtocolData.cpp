@@ -103,6 +103,16 @@ Word CLASS_CAMERA_PROTOCOL_DATA::GetHorizontalIdentifier(void) const
    return f_HorizontalResolution;
 }
 
+///
+/// \fn GetPixels
+/// \brief Get pixels
+/// \return QByteArray \e pixels
+///
+QByteArray CLASS_CAMERA_PROTOCOL_DATA::GetPixels(void) const
+{
+   return f_Pixels;
+}
+
 /******************************************************************************
  *                                  Setter                                    *
  *****************************************************************************/
@@ -145,6 +155,16 @@ void CLASS_CAMERA_PROTOCOL_DATA::SetVerticalResolution(const Word verticalResolu
 void CLASS_CAMERA_PROTOCOL_DATA::SetHorizontalResolution(const Word horizontalResolution)
 {
    f_HorizontalResolution = horizontalResolution;
+}
+
+///
+/// \fn SetPixels
+/// \brief Set pixels
+/// \param[in] pixels : pixels
+///
+void CLASS_CAMERA_PROTOCOL_DATA::SetPixels(const QByteArray pixels)
+{
+   f_Pixels = pixels;
 }
 
 /******************************************************************************

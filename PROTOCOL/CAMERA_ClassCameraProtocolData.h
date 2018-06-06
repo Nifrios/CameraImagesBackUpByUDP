@@ -78,6 +78,13 @@ class CLASS_CAMERA_PROTOCOL_DATA : public QObject
       ///
       Word GetHorizontalIdentifier(void) const;
 
+      ///
+      /// \fn GetPixels
+      /// \brief Get pixels
+      /// \return QByteArray \e pixels
+      ///
+      QByteArray GetPixels(void) const;
+
       /*------------------------------ Setter ------------------------------*/
 
       ///
@@ -108,6 +115,13 @@ class CLASS_CAMERA_PROTOCOL_DATA : public QObject
       ///
       void SetHorizontalResolution(const Word horizontalResolution);
 
+      ///
+      /// \fn SetPixels
+      /// \brief Set pixels
+      /// \param[in] pixels : pixels
+      ///
+      void SetPixels(const QByteArray pixels);
+
       /*-------------------------- Public methods  -------------------------*/
 
       /*--------------------------- Public signals -------------------------*/
@@ -136,6 +150,7 @@ class CLASS_CAMERA_PROTOCOL_DATA : public QObject
       Word f_LineNumber;            /// Line number
       Word f_VerticalResolution;    /// Vertical resolution
       Word f_HorizontalResolution;  /// Horizontal resolution
+      QByteArray f_Pixels;          /// Pixels
 
 };
 
