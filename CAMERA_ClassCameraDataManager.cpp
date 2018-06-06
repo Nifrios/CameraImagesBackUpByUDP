@@ -56,6 +56,11 @@ CLASS_CAMERA_DATA_MANAGER::CLASS_CAMERA_DATA_MANAGER(QObject *parent):
 ///
 CLASS_CAMERA_DATA_MANAGER::~CLASS_CAMERA_DATA_MANAGER()
 {
+   // Remove image(s) class in the container
+   for (CLASS_CAMERA_IMAGE* Image : f_CurrentImage.values())
+      delete Image;
+
+   f_CurrentImage.clear();
 }
 
 /******************************************************************************
