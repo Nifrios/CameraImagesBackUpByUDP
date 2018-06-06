@@ -129,7 +129,7 @@ void CLASS_CAMERA_IMAGE::AppendPixelsData(const Word lineNumber, const QByteArra
 ///
 Bool CLASS_CAMERA_IMAGE::ImageIsReadyToExport(void)
 {
-   return (f_Pixels.size() == f_HorizontalResolution);
+   return (f_Pixels.size() == f_VerticalResolution);
 }
 
 /******************************************************************************
