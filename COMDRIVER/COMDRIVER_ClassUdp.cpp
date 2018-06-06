@@ -61,6 +61,8 @@ CLASS_UDP::CLASS_UDP(const QHostAddress& localAddress, const Word localPort, con
 ///
 CLASS_UDP::~CLASS_UDP()
 {
+   // We het remote parameters for potential answers
+
    // Close connection if opened
    if (f_Socket.state() == QAbstractSocket::ConnectedState)
       this->Close();
