@@ -1,3 +1,7 @@
+## Project
+
+Recovery of images captured by a camera that are cut into UDP packet with a fictitious protocol.
+
 ## Deployment
 
 Things to do to compile the code (I'm using Qt 5.11 on Ubuntu 18.04 LTS x64 on VirtualBox):
