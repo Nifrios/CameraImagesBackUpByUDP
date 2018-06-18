@@ -16,8 +16,8 @@ Things to do to compile the code (I'm using Qt 5.11 on Ubuntu 18.04 LTS x64 on V
 * Install OpenGL libraries: sudo apt-get install mesa-common-dev libglu1-mesa-dev
 
 ### Qt5 + QtCreator
-* x64: http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run
-* x86: http://download.qt.io/official_releases/online_installers/qt-unified-linux-x86-online.run
+* [Qt Creator x64](http://download.qt.io/official_releases/online_installers/qt-unified-linux-x64-online.run)
+* [Qt Creator x86](http://download.qt.io/official_releases/online_installers/qt-unified-linux-x86-online.run)
 During the installation, check the boxes:
 * Qt 5.11.0 (main option)
 ** Qt 5.11.0 - Desktop gcc 64(or 32)-bit and
