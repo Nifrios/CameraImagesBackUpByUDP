@@ -84,12 +84,14 @@ void CLASS_CAMERA_DATA_MANAGER::Start(void)
    // Open UDP communication
    if (f_Udp.Open() == false)
    {
-      qDebug() << "Cannot open UDP communication";
+      qDebug() << "Cannot open UDP communication, abort CameraImagesBackUpByUDP launch!";
       return;
    }
 
    // If we have open the UDP, we connect new data signal reception
    QObject::connect(&f_Udp, &CLASS_UDP::SIGNAL_NewDataAvailable, this, &CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived, Qt::QueuedConnection);
+
+   qDebug() << "CameraImagesBackUpByUDP - Ready to receive image packets";
 }
 
 /******************************************************************************
