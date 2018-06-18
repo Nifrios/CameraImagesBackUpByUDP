@@ -88,8 +88,9 @@ class CLASS_CAMERA_DATA_MANAGER : public QObject
 
    private:
 
-      CLASS_UDP f_Udp;                                   /// UDP communication
-      QMap<Word, CLASS_CAMERA_IMAGE*> f_CurrentImage;    /// Current image depends on raw buffer
+      CLASS_UDP f_Udp;                                   ///< UDP communication
+      const QString f_ImageFileExtension;                ///< Image file extension
+      QMap<Word, CLASS_CAMERA_IMAGE*> f_CurrentImage;    ///< Current image depends on raw buffer
 
 };
 

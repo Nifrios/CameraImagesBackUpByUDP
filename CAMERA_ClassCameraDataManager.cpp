@@ -11,6 +11,7 @@
 // Qt librairies
 #include <QDebug>
 #include <QFile>
+#include <QStandardPaths>
 #include <QStringBuilder>
 // Modules
 #include "CAMERA_ClassCameraDataManager.h"
@@ -45,6 +46,7 @@
 CLASS_CAMERA_DATA_MANAGER::CLASS_CAMERA_DATA_MANAGER(QObject *parent):
    QObject(parent),
    f_Udp(QHostAddress::LocalHost, 12345, this),
+   f_ImageFileExtension(QLatin1String(".raw")),
    f_CurrentImage()
 {
 
@@ -133,7 +135,7 @@ void CLASS_CAMERA_DATA_MANAGER::SLOT_NewDataReceived(const QByteArray& rawData)
          if (CurrentImage->ImageIsReadyToExport() == true)
          {
             // Create file if does not exist, otherwise erased the old
-            QFile Image("/tmp/" % QString::number(CurrentImage->GetImageID()) % ".raw");
+            QFile Image(QStandardPaths::displayName(QStandardPaths::TempLocation) % QString::number(CurrentImage->GetImageID()) % f_ImageFileExtension);
 
             if (Image.exists() == true)
             {
