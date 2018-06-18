@@ -37,9 +37,10 @@ class CLASS_CAMERA_DATA_MANAGER : public QObject
       /// \fn CLASS_CAMERA_DATA_MANAGER(QObject *parent)
       /// \brief CLASS_CAMERA_DATA_MANAGER constructor
       ///
+      /// \param[in] udpLocalPort : UDP local port to receive image packets
       /// \param[in] parent : Objet parent
       ///
-      CLASS_CAMERA_DATA_MANAGER(QObject *parent = nullptr);
+      CLASS_CAMERA_DATA_MANAGER(const Word udpLocalPort, QObject *parent = nullptr);
 
       ///
       /// \fn ~CLASS_CAMERA_DATA_MANAGER()

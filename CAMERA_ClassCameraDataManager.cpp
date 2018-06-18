@@ -41,11 +41,12 @@
 /// \fn CLASS_CAMERA_DATA_MANAGER(QObject *parent)
 /// \brief CLASS_CAMERA_DATA_MANAGER constructor
 ///
+/// \param[in] udpLocalPort : UDP local port to receive image packets
 /// \param[in] parent : Objet parent
 ///
-CLASS_CAMERA_DATA_MANAGER::CLASS_CAMERA_DATA_MANAGER(QObject *parent):
+CLASS_CAMERA_DATA_MANAGER::CLASS_CAMERA_DATA_MANAGER(const Word udpLocalPort, QObject *parent):
    QObject(parent),
-   f_Udp(QHostAddress::LocalHost, 12345, this),
+   f_Udp(QHostAddress::LocalHost, udpLocalPort, this),
    f_ImageFileExtension(QLatin1String(".raw")),
    f_CurrentImage()
 {

@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
    QCoreApplication a(argc, argv);
 
    // Main class of camera data management
-   CLASS_CAMERA_DATA_MANAGER CameraDataManager;
+   CLASS_CAMERA_DATA_MANAGER CameraDataManager(12345);
    // Launch initialization
    CameraDataManager.Start();
 
